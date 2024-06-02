@@ -5,8 +5,6 @@ on:
   
 jobs:
   job_name:
-    env: 
-      ISSUE_NUMBER: ${{ github.event.issue.number }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -14,5 +12,11 @@ jobs:
       - name: Greeting Message
         run: echo "Issue arrived!"
       - name: Printing data
+        env: 
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_LABELS: ${{ join(github.event.issue.labels.*.name, ', ') }}
+          LOGIN: ${{ join(github.event.issue.assignees.*.login, ', ') }}
         run: |
           echo "Issue Number: ${ISSUE_NUMBER}"
