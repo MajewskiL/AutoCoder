@@ -1,7 +1,7 @@
 name: Access Issue Information
 on:
   issues:
-    types: [opened]
+    types: [opened, reopened]
   
 jobs:
   job_name:
