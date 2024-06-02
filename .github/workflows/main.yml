@@ -1,6 +1,7 @@
-name: Workflow Name
-on: 
-  [push]
+name: Access Issue Information
+on:
+  issues:
+    types: [opened]
   
 jobs:
   job_name:
@@ -8,6 +9,5 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
-
       - name: Greeting Message
-        run: echo "Hello, world"
+        run: echo "Issue arrived!"
