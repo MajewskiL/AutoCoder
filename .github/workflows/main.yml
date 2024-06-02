@@ -2,7 +2,6 @@ name: Access Issue Information
 on:
   issues:
     types: [opened, reopened]
-  
 jobs:
   job_name:
     env: 
