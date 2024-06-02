@@ -19,3 +19,8 @@ jobs:
           LOGIN: ${{ join(github.event.issue.assignees.*.login, ', ') }}
         run: |
           echo "Issue Number: ${ISSUE_NUMBER}"
+          echo "Issue Title: ${ISSUE_TITLE}"
+          echo "Issue Body: ${ISSUE_BODY}"
+          echo "Issue Labels: ${ISSUE_LABELS}"
+          echo "Login: ${LOGIN}"
+          
