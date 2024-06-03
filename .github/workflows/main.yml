@@ -21,10 +21,14 @@ jobs:
         
       - name: Creating yml
         run: echo ${ISSUE_LABELS}
+        
+      - if: contains(${ISSUE_LABEL}, 'autocoder-bot')
+        run: exit 1
       
       - name: Checking label
         run: echo ${REPOSITORY}
-        #if: contains(github.event.issue.labels.*.name, 'autocoder-bot') |  
+      
+
         #  echo ${REPOSITORY}
         #  echo ${REPOSITORY}
 
