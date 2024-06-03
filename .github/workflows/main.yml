@@ -21,7 +21,7 @@ jobs:
           # ISSUE_TITLE: ${{ github.event.issue.title }}
           # ISSUE_BODY: ${{ github.event.issue.body }}
           # ISSUE_LABELS: ${{ join(github.event.issue.labels.*.name, ', ') }}
-          # LOGIN: ${{ join(github.event.issue.assignees.*.login, ', ') }}
+          # LOGIN: ${{ join(github.event.issue.assignees.*.login, ', '), ', ') }}
           
         run: |
           if: contains(join(github.event.issue.labels.*.name, 'autocoder-bot')
