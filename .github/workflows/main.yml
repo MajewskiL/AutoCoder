@@ -19,7 +19,7 @@ jobs:
         run: chmod +x scripts/script.sh
         
       - name: Creating yml
-        run: echo "YAML"
+        run: echo github.event.issue.labels.*.name
       
       - name: Checking label
         run: echo ${REPOSITORY}
