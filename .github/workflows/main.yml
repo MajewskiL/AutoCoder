@@ -24,8 +24,10 @@ jobs:
           # LOGIN: ${{ join(github.event.issue.assignees.*.login, ', ') }}
           
         run: |
+          if: contains(join(github.event.issue.labels.*.name, 'autocoder-bot')
           echo "GITHUB_TOKEN: ${GITHUB_TOKEN}"
           echo "REPOSITORY: ${REPOSITORY}"
           echo "Issue Number: ${ISSUE_NUMBER}"
           echo "CHATGPT_TOKEN: ${CHAT_GPT_API}"
+          fi
           
