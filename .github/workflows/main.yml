@@ -2,32 +2,35 @@ name: Access Issue Information
 on:
   issues:
     types: [opened, reopened, labeled]
+env: 
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  REPOSITORY: ${{ github.repository }}
+  ISSUE_NUMBER: ${{ github.event.issue.number }}
+  CHAT_GPT_API: ${{ secrets.OPENAI_API_KEY }}
 jobs:
   job_name:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
       - name: Greeting Message
-        run: echo "Issue arrived!"
+        
       - name: Set permissions X
         run: chmod +x scripts/script.sh
       - name: Creating yml
-        env: 
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPOSITORY: ${{ github.repository }}
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
-          CHAT_GPT_API: ${{ secrets.OPENAI_API_KEY }}
+
           # ISSUE_TITLE: ${{ github.event.issue.title }}
           # ISSUE_BODY: ${{ github.event.issue.body }}
           # ISSUE_LABELS: ${{ join(github.event.issue.labels.*.name, ', ') }}
           # LOGIN: ${{ join(github.event.issue.assignees.*.login, ', '), ', ') }}
           
         
-      - if: contains(join(github.event.issue.labels.*.name, ', '), 'autocoder-bot')
+      - name: Checking label
         run: echo "GITHUB_TOKEN: ${GITHUB_TOKEN}"
+
           # echo "REPOSITORY: ${REPOSITORY}"
           # echo "Issue Number: ${ISSUE_NUMBER}"
           # echo "CHATGPT_TOKEN: ${CHAT_GPT_API}"
-          
+        # if: contains(join(github.event.issue.labels.*.name, ', '), 'autocoder-bot')          
           
