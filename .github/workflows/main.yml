@@ -22,9 +22,7 @@ jobs:
         run: echo "YAML"
       
       - name: Checking label
-        run: |
-            echo ${REPOSITORY}
-            echo ${REPOSITORY}
+        run: echo ${REPOSITORY}
         if: contains(github.event.issue.labels.*.name, 'autocoder-bot') |  
           echo ${REPOSITORY}
           echo ${REPOSITORY}
