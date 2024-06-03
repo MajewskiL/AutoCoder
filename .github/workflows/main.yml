@@ -10,13 +10,14 @@ jobs:
         uses: actions/checkout@v3
       - name: Greeting Message
         run: echo "Issue arrived!"
-      - name: Printing data
+      - name: Creating yml
         env: 
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
           ISSUE_BODY: ${{ github.event.issue.body }}
           ISSUE_LABELS: ${{ join(github.event.issue.labels.*.name, ', ') }}
           LOGIN: ${{ join(github.event.issue.assignees.*.login, ', ') }}
+          CHAT_GPT_API: ${{ secrets.OPENAI_API_KEY }}
         run: |
           echo "Issue Number: ${ISSUE_NUMBER}"
           echo "Issue Title: ${ISSUE_TITLE}"
