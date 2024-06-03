@@ -25,10 +25,9 @@ jobs:
           
         
       - if: contains(join(github.event.issue.labels.*.name, ', '), 'autocoder-bot')
-        run: |
-          echo "GITHUB_TOKEN: ${GITHUB_TOKEN}"
-          echo "REPOSITORY: ${REPOSITORY}"
-          echo "Issue Number: ${ISSUE_NUMBER}"
-          echo "CHATGPT_TOKEN: ${CHAT_GPT_API}"
+        run: wcho "GITHUB_TOKEN: ${GITHUB_TOKEN}"
+          # echo "REPOSITORY: ${REPOSITORY}"
+          # echo "Issue Number: ${ISSUE_NUMBER}"
+          # echo "CHATGPT_TOKEN: ${CHAT_GPT_API}"
           
           
