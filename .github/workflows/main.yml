@@ -22,7 +22,7 @@ jobs:
         run: echo "YAML"
       
       - name: Checking label
-        if: contains(join(github.event.issue.labels.*.name, ', '), 'autocoder-bot')   
+        if: contains(github.event.issue.labels.*.name, 'autocoder-bot')   
         run: |
           echo ${REPOSITORY}
           echo ${REPOSITORY}
@@ -30,7 +30,7 @@ jobs:
           # echo "GITHUB_TOKEN: ${GITHUB_TOKEN}"
           # echo "Issue Number: ${ISSUE_NUMBER}"
           # echo "CHATGPT_TOKEN: ${CHAT_GPT_API}"
-        # if: contains(join(github.event.issue.labels.*.name, ', '), 'autocoder-bot')     
+        # if: contains(github.event.issue.labels.*.name, 'autocoder-bot')     
                   # ISSUE_TITLE: ${{ github.event.issue.title }}
           # ISSUE_BODY: ${{ github.event.issue.body }}
           # ISSUE_LABELS: ${{ join(github.event.issue.labels.*.name, ', ') }}
