@@ -7,6 +7,7 @@ env:
   REPOSITORY: ${{ github.repository }}
   ISSUE_NUMBER: ${{ github.event.issue.number }}
   CHAT_GPT_API: ${{ secrets.OPENAI_API_KEY }}
+  ISSUE_LABELS: ${{ join(github.event.issue.labels.*.name, ', ') }}
 jobs:
   job_name:
     runs-on: ubuntu-latest
@@ -19,7 +20,7 @@ jobs:
         run: chmod +x scripts/script.sh
         
       - name: Creating yml
-        run: echo github.event.issue.labels.*.name
+        run: echo ${ISSUE_LABELS}
       
       - name: Checking label
         run: echo ${REPOSITORY}
