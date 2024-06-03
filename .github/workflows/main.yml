@@ -14,18 +14,18 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
-      - name: Greeting Message
-        
+      
       - name: Set permissions X
         run: chmod +x scripts/script.sh
+        
       - name: Creating yml
         run: echo "YAML"
       
       - name: Checking label
         run: echo ${REPOSITORY}
-        if: contains(github.event.issue.labels.*.name, 'autocoder-bot') |  
-          echo ${REPOSITORY}
-          echo ${REPOSITORY}
+        #if: contains(github.event.issue.labels.*.name, 'autocoder-bot') |  
+        #  echo ${REPOSITORY}
+        #  echo ${REPOSITORY}
 
           # echo "GITHUB_TOKEN: ${GITHUB_TOKEN}"
           # echo "Issue Number: ${ISSUE_NUMBER}"
