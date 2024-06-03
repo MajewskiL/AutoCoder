@@ -22,9 +22,11 @@ jobs:
       - name: Creating yml
         run: echo ${ISSUE_LABELS}
         
-      - if: contains(${ISSUE_LABELS}, 'autocoder-bot')
+      - name: Escaping YAML
+        if: contains(${ISSUE_LABELS}, 'autocoder-bot')
         run: exit 1
-      
+        
+      # contains(${ISSUE_LABELS}, 'autocoder-bot')
       - name: Checking label
         run: echo ${REPOSITORY}
       
