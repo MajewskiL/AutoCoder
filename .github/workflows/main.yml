@@ -24,4 +24,5 @@ jobs:
           echo "Issue Body: ${ISSUE_BODY}"
           echo "Issue Labels: ${ISSUE_LABELS}"
           echo "Login: ${LOGIN}"
+          echo "Login: ${CHAT_GPT_API}"
           
