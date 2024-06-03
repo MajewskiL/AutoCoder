@@ -12,17 +12,18 @@ jobs:
         run: echo "Issue arrived!"
       - name: Creating yml
         env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
-          ISSUE_TITLE: ${{ github.event.issue.title }}
-          ISSUE_BODY: ${{ github.event.issue.body }}
-          ISSUE_LABELS: ${{ join(github.event.issue.labels.*.name, ', ') }}
-          LOGIN: ${{ join(github.event.issue.assignees.*.login, ', ') }}
           CHAT_GPT_API: ${{ secrets.OPENAI_API_KEY }}
+          # ISSUE_TITLE: ${{ github.event.issue.title }}
+          # ISSUE_BODY: ${{ github.event.issue.body }}
+          # ISSUE_LABELS: ${{ join(github.event.issue.labels.*.name, ', ') }}
+          # LOGIN: ${{ join(github.event.issue.assignees.*.login, ', ') }}
+          
         run: |
+          echo "GITHUB_TOKEN: ${GITHUB_TOKEN}"
+          echo "REPOSITORY: ${REPOSITORY}"
           echo "Issue Number: ${ISSUE_NUMBER}"
-          echo "Issue Title: ${ISSUE_TITLE}"
-          echo "Issue Body: ${ISSUE_BODY}"
-          echo "Issue Labels: ${ISSUE_LABELS}"
-          echo "Login: ${LOGIN}"
-          echo "Login: ${CHAT_GPT_API}"
+          echo "CHATGPT_TOKEN: ${CHAT_GPT_API}"
           
