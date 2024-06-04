@@ -22,7 +22,7 @@ jobs:
         run: echo "Great!"
 
       - name: Creating yml
-        run: ./scripts/script.sh ${GITHUB_TOKEN}, ${REPOSITORY}, ${ISSUE_NUMBER}, ${CHAT_GPT_API} > odp_${ISSUE_NUMBER}.txt
+        run: ./scripts/script.sh ${GITHUB_TOKEN}, ${REPOSITORY}, ${ISSUE_NUMBER}, ${CHAT_GPT_API} > ./scripts/odp_${ISSUE_NUMBER}.txt
         
       - name: Checking label
         run: echo ${REPOSITORY}
