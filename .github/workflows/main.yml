@@ -28,7 +28,8 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: autocoder-artifact
-          path: *-out.txt
+          path: |
+            *-out.txt
 
 
       - name: Download Artifact
