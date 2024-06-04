@@ -22,21 +22,20 @@ jobs:
         run: echo "Great!"
 
       - name: Creating yml
-        run: ./scripts/script.sh ${GITHUB_TOKEN}, ${REPOSITORY}, ${ISSUE_NUMBER}, ${CHAT_GPT_API} > ${ISSUE_NUMBER}-response.txt
+        run: ./scripts/script.sh ${GITHUB_TOKEN}, ${REPOSITORY}, ${ISSUE_NUMBER}, ${CHAT_GPT_API} > ${ISSUE_NUMBER}-out.txt
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
           name: autocoder-artifact
-          path: |
-            *-response.txt
-          if-no-files-found: error
+          path: *-out.txt
+
 
       - name: Download Artifact
         uses: actions/download-artifact@v3
         with:
           name: autocoder-artifact
-          path: ~/artifact
+          path: ~/output
 #        run: ./scripts/script.sh ${GITHUB_TOKEN}, ${REPOSITORY}, ${ISSUE_NUMBER}, ${CHAT_GPT_API} > output.txt
       
 #      - name: Upload Artifact ChatGPT
