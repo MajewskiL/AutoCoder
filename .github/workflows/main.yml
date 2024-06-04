@@ -11,10 +11,6 @@ env:
 jobs:
   job_name:
     runs-on: ubuntu-latest
-    if: contains(github.event.issue.labels.*.name, 'autocoder-bot')
-      run: exit 1
-      
-            
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
