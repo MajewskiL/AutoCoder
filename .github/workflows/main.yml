@@ -22,7 +22,7 @@ jobs:
         run: echo "Great!"
 
       - name: Creating yml
-        run: ./scripts/script.sh ${GITHUB_TOKEN}, ${REPOSITORY}, ${ISSUE_NUMBER}, ${OPENAI_API_KEY} > ${ISSUE_NUMBER}-response.txt
+        run: ./scripts/script.sh ${GITHUB_TOKEN}, ${REPOSITORY}, ${ISSUE_NUMBER}, ${CHAT_GPT_API} > ${ISSUE_NUMBER}-response.txt
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
