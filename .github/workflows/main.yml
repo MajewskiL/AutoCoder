@@ -23,8 +23,7 @@ jobs:
         run: echo ${ISSUE_LABELS}
         
       #- name: Escaping YAML
-      - if: ${{ $ISSUE_LABELS = 'autocoder-bot' ]] }}
-      # contains(github.event.issue.labels.*.name, 'autocoder-bot')
+      - if: contains(github.event.issue.labels.*.name, 'bug')
         run: exit 1
         
       # contains(${ISSUE_LABELS}, 'autocoder-bot')
