@@ -9,7 +9,7 @@ env:
   CHAT_GPT_API: ${{ secrets.OPENAI_API_KEY }}
   ISSUE_LABELS: ${{ join(github.event.issue.labels.*.name, ', ') }}
 jobs:
-  job_name:
+  asking_chat_bot:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -21,7 +21,6 @@ jobs:
       - name: Creating yml
         run: echo ${ISSUE_LABELS}
 
-      # - name: Escaping YAML
       - if: contains(github.event.issue.labels.*.name, 'autocoder-bot')
         run: echo "Great!"
         
