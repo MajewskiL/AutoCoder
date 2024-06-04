@@ -21,7 +21,7 @@ jobs:
       - name: Creating yml
         run: echo ${ISSUE_LABELS}
 
-      - id: Chcecking bot
+      - id: Check_bot
         run: if contains(github.event.issue.labels.*.name, 'autocoder-bot'); then exit 0; else exit 1; fi
         
       - if: ${{ always() }}
