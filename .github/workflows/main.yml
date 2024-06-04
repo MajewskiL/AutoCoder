@@ -22,22 +22,34 @@ jobs:
         run: echo "Great!"
 
       - name: Creating yml
-        run: ./scripts/script.sh ${GITHUB_TOKEN}, ${REPOSITORY}, ${ISSUE_NUMBER}, ${CHAT_GPT_API} > output.txt
-        
-      - name: Checking label
-        run: echo ${REPOSITORY}
-      
-      - name: Upload Artifact ChatGPT
+        run: ./scripts/script.sh ${GITHUB_TOKEN}, ${REPOSITORY}, ${ISSUE_NUMBER}, ${OPENAI_API_KEY} > ${ISSUE_NUMBER}-response.txt
+
+      - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
           name: autocoder-artifact
-          path: output.txt
+          path: |
+            *-response.txt
+          if-no-files-found: error
 
-      - name: Download Artifact ChatGPT
+      - name: Download Artifact
         uses: actions/download-artifact@v3
         with:
           name: autocoder-artifact
-          path: ~/output
+          path: ~/artifact
+#        run: ./scripts/script.sh ${GITHUB_TOKEN}, ${REPOSITORY}, ${ISSUE_NUMBER}, ${CHAT_GPT_API} > output.txt
+      
+#      - name: Upload Artifact ChatGPT
+#        uses: actions/upload-artifact@v3
+#        with:
+#          name: autocoder-artifact
+#          path: output.txt
+
+ #     - name: Download Artifact ChatGPT
+ #       uses: actions/download-artifact@v3
+ #       with:
+ #         name: autocoder-artifact
+ #         path: ~/output
           
               # - id: Check_bot
       #  run: if contains(github.event.issue.labels.*.name, 'autocoder-bot'); then exit 0; else exit 1; fi
