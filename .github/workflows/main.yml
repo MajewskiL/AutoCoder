@@ -21,19 +21,21 @@ jobs:
       - name: Creating yml
         run: echo ${ISSUE_LABELS}
 
-      - id: Check_bot
-        run: if contains(github.event.issue.labels.*.name, 'autocoder-bot'); then exit 0; else exit 1; fi
-        
-      - if: ${{ always() }}
-        run: echo "YES!"
-        
       # - name: Escaping YAML
-      #- if: contains(github.event.issue.labels.*.name, 'autocoder-bot')
-      #  run: exit 1
+      - if: contains(github.event.issue.labels.*.name, 'autocoder-bot')
+        run: echo "Great!"
         
       - name: Checking label
         run: echo ${REPOSITORY}
       
+
+
+              # - id: Check_bot
+      #  run: if contains(github.event.issue.labels.*.name, 'autocoder-bot'); then exit 0; else exit 1; fi
+        
+      # - if: ${{ always() }}
+      #  run: echo "YES!"
+        
 
         #  echo ${REPOSITORY}
         #  echo ${REPOSITORY}
