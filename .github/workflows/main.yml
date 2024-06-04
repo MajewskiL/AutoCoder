@@ -22,12 +22,20 @@ jobs:
         run: echo "Great!"
 
       - name: Creating yml
-        run: ./scripts/script.sh ${GITHUB_TOKEN}, ${REPOSITORY}, ${ISSUE_NUMBER}, ${CHAT_GPT_API} > ./scripts/odp_${ISSUE_NUMBER}.txt
+        run: ./scripts/script.sh ${GITHUB_TOKEN}, ${REPOSITORY}, ${ISSUE_NUMBER}, ${CHAT_GPT_API}
         
       - name: Checking label
         run: echo ${REPOSITORY}
       
+      - name: Upload Artifact ChatGPT
+        uses: actions/upload-artifact@v3
+        with:
+          name: autocoder-artifact
 
+      - name: Download Artifact ChatGPT
+        uses: actions/download-artifact@v3
+        with:
+          name: autocoder-artifact
 
               # - id: Check_bot
       #  run: if contains(github.event.issue.labels.*.name, 'autocoder-bot'); then exit 0; else exit 1; fi
