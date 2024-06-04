@@ -20,14 +20,14 @@ jobs:
         run: chmod +x scripts/script.sh
 
       - name: Creating yml
-        run: ./scripts/script.sh ${GITHUB_TOKEN}, ${REPOSITORY}, ${ISSUE_NUMBER}, ${CHAT_GPT_API} > ${ISSUE_NUMBER}-out.txt
+        run: ./scripts/script.sh ${GITHUB_TOKEN}, ${REPOSITORY}, ${ISSUE_NUMBER}, ${CHAT_GPT_API} > output.txt
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
           name: autocoder-artifact
           path: |
-            *-out.txt
+            output.txt
 
 
       - name: Download Artifact
