@@ -22,7 +22,7 @@ jobs:
       - name: Creating yml
         run: echo ${ISSUE_LABELS}
         
-      #- name: Escaping YAML
+      - name: Escaping YAML
       - if: contains(github.event.issue.labels.*.name, 'autocoder-bot')
         run: exit 1
         
