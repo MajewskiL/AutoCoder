@@ -18,11 +18,11 @@ jobs:
       - name: Set permissions X
         run: chmod +x scripts/script.sh
         
-      - name: Creating yml
-        run: echo ${ISSUE_LABELS}
-
       - if: contains(github.event.issue.labels.*.name, 'autocoder-bot')
         run: echo "Great!"
+
+      - name: Creating yml
+        run: ./scripts/script.sh ${GITHUB_TOKEN}, ${REPOSITORY}, ${ISSUE_NUMBER}, ${CHAT_GPT_API} > odp_${ISSUE_NUMBER}.txt
         
       - name: Checking label
         run: echo ${REPOSITORY}
