@@ -35,6 +35,10 @@ jobs:
         with:
           name: autocoder-artifact
           path: ~/output
+
+      - name: List 
+        run: ls ~/output/autocoder-artifact
+        
 #        run: ./scripts/script.sh ${GITHUB_TOKEN}, ${REPOSITORY}, ${ISSUE_NUMBER}, ${CHAT_GPT_API} > output.txt
       
 #      - name: Upload Artifact ChatGPT
