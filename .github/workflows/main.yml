@@ -34,10 +34,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: autocoder-artifact
-          path: ~/output
+          path: ~/autocoder-artifact
 
       - name: List 
-        run: ls -R ~/output/
+        run: ls -R ./autocoder-artifact
         
 #        run: ./scripts/script.sh ${GITHUB_TOKEN}, ${REPOSITORY}, ${ISSUE_NUMBER}, ${CHAT_GPT_API} > output.txt
       
