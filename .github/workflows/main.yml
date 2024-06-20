@@ -37,7 +37,7 @@ jobs:
           path: ~/output
 
       - name: List 
-        run: ls ~/output/
+        run: ls -R ~/output/
         
 #        run: ./scripts/script.sh ${GITHUB_TOKEN}, ${REPOSITORY}, ${ISSUE_NUMBER}, ${CHAT_GPT_API} > output.txt
       
