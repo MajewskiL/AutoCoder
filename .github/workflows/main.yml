@@ -34,7 +34,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: autocoder-artifact
-          path: ~/output # autocoder-artifact
+          path: ~/autocoder-artifact
 
       - name: List 
         run: ls -R ./autocoder-artifact
